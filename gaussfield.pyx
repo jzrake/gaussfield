@@ -29,7 +29,7 @@ cdef extern from "src/ou-field.hpp":
         int GetK1()
 
 
-cdef class DrivingField2d(object):
+cdef class GaussianField2d(object):
     """
     Generates isotropic, 2d Gaussian random vector fields which are
     unit-correlated in time.
@@ -55,7 +55,7 @@ cdef class DrivingField2d(object):
 
     def __reduce__(self):
         cdef string ser = self._c.Serialize()
-        return (DrivingField2d, tuple(), self._c.Serialize())
+        return (GaussianField2d, tuple(), self._c.Serialize())
 
     def __setstate__(self, state):
         self._c.DeSerialize(state)
@@ -106,7 +106,7 @@ cdef class DrivingField2d(object):
             return self._c.GetK1()
 
 
-cdef class DrivingField3d(object):
+cdef class GaussianField3d(object):
     """
     Generates isotropic, 3d Gaussian random vector fields which are
     unit-correlated in time.
@@ -132,7 +132,7 @@ cdef class DrivingField3d(object):
 
     def __reduce__(self):
         cdef string ser = self._c.Serialize()
-        return (DrivingField3d, tuple(), self._c.Serialize())
+        return (GaussianField3d, tuple(), self._c.Serialize())
 
     def __setstate__(self, state):
         self._c.DeSerialize(state)

@@ -1,14 +1,14 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import driving
+import gaussfield
 
 N = 64
 
 
 def example1():
     X, Y = np.mgrid[0:1:1./N, 0:1:1./N]
-    field = driving.DrivingField2d(1.0, 1.0, 3, 12345)
+    field = gaussfield.GaussianField2d(1.0, 1.0, 3, 12345)
     field.advance(1.0)
     print 'sampling field...'
     F = field.sample(X, Y)
@@ -19,7 +19,7 @@ def example1():
 
 def example2():
     X, Y, Z = np.mgrid[0:1:1./N, 0:1:1./N,0:1:1./N]
-    field = driving.DrivingField3d(1.0, 1.0, 3, 12345)
+    field = gaussfield.GaussianField3d(1.0, 1.0, 3, 12345)
     field.advance(1.0)
     print 'sampling field...'
     F = field.sample(X, Y, Z)

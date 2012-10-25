@@ -1,15 +1,15 @@
 
 import numpy as np
-import driving
 import pickle
 import unittest
+import gaussfield
 
 N = 32
 
-class TestDrivingField2d(unittest.TestCase):
+class TestGaussianField2d(unittest.TestCase):
     def setUp(self):
         self.seq = range(10)
-        self.field = driving.DrivingField2d(1.0, 1.0, 4, 12345)
+        self.field = gaussfield.GaussianField2d(1.0, 1.0, 4, 12345)
         self.X = np.zeros([N,N])
         self.Y = np.zeros([N,N])
 
@@ -37,10 +37,10 @@ class TestDrivingField2d(unittest.TestCase):
         self.assertAlmostEqual(F1[1], F2[1])
 
 
-class TestDrivingField3d(unittest.TestCase):
+class TestGaussianField3d(unittest.TestCase):
     def setUp(self):
         self.seq = range(10)
-        self.field = driving.DrivingField3d(1.0, 1.0, 4, 12345)
+        self.field = gaussfield.GaussianField3d(1.0, 1.0, 4, 12345)
         self.X = np.zeros([N,N,N])
         self.Y = np.zeros([N,N,N])
         self.Z = np.zeros([N,N,N])
