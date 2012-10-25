@@ -1,4 +1,4 @@
 driving
 =======
 
-Python wrapped C++ class for driving 2d/3d isotropic turbulent fields
+Python wrapped C++ class for generating 2d and 3d stochastic gaussian random fields
