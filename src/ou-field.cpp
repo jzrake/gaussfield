@@ -95,17 +95,17 @@ void StochasticVectorField3d::Initialize(double P0_, double zeta_, int k1_,
         Kz[m] = 2*M_PI*k;
 
         const double K[3] = { Kx[m].real(), Ky[m].real(), Kz[m].real() };
-        const double k = sqrt(K[0]*K[0] + K[1]*K[1] + K[2]*K[2]);
+        const double k0 = sqrt(K[0]*K[0] + K[1]*K[1] + K[2]*K[2]);
 
-	totpower += StoneProfile(k);
+	totpower += StoneProfile(k0);
       }
     }
   }
 
   for (int m=0; m<numk; ++m) {
     const double K[3] = { Kx[m].real(), Ky[m].real(), Kz[m].real() };
-    const double k = sqrt(K[0]*K[0] + K[1]*K[1] + K[2]*K[2]);
-    const double Pk = StoneProfile(k);
+    const double k0 = sqrt(K[0]*K[0] + K[1]*K[1] + K[2]*K[2]);
+    const double Pk = StoneProfile(k0);
 
     OrnsteinUhlenbeckProcess process(1.0, sqrt(2*P0*Pk/totpower), seed+m);
     OuProcesses.push_back(process);
